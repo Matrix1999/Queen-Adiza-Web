@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Matrix | Projects</title>
+<link href="https://files.catbox.moe/4hq1u5.jpg" rel="icon" type="image"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+<style>
+    :root {
+      --primary-color: #6C63FF;
+      --primary-light: #8A85FF;
+      --secondary-color: #FF6584;
+      --dark-bg: #12141D;
+      --darker-bg: #0D0F16;
+      --light-bg: #1E2029;
+      --text-primary: #FFFFFF;
+      --text-secondary: #B8B8C5;
+      --accent-color: #00D1B2;
+      --glass-bg: rgba(30, 32, 41, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      background: var(--dark-bg);
+      color: var(--text-primary);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .logo {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-color);
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .whatsapp-btn:hover {
+      background: #00b89c;
+    }
+
+    .projects {
+      padding: 3rem 2rem;
+      background: #000000;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+
+    .project-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.project-info h3 {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.visit-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.visit-btn:hover {
+    background-color: var(--primary-light);
+    transform: scale(1.05);
+}
+
+.credit {
+  color: #cccccc; /* Soft gray for better readability */
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px; /* Adds space below the footer */
+  margin-bottom: 15px; /* Extra bottom space */
+}
+
+
+    footer {
+      padding: 1.50rem;
+      background: var(--glass-bg);
+      border-top: 1px solid var(--glass-border);
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .social-links a {
+      color: var(--text-secondary);
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Animated Background Circles */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    .circle-1 {
+      width: 300px;
+      height: 300px;
+      background: var(--primary-color);
+      top: 10%;
+      left: 10%;
+    }
+
+    .circle-2 {
+      width: 400px;
+      height: 400px;
+      background: var(--secondary-color);
+      bottom: 10%;
+      right: 10%;
+    }
+
+    .circle-3 {
+      width: 200px;
+      height: 200px;
+      background: var(--accent-color);
+      top: 50%;
+      right: 20%;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+      }
+      50% {
+        transform: translateY(-30px) translateX(30px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav {
+        margin-top: 1rem;
+      }
+    }
+  
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: linear-gradient(-45deg, #000000, #8B0000, #000000, #ff0000);
+  background-size: 600% 600%;
+  z-index: -1;
+  animation: redBlackShift 10s ease infinite;
+}
+
+@keyframes redBlackShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.hero h1 {
+  background-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 400% 100%;
+  animation: rainbowText 5s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes rainbowText {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+html, body { scroll-behavior: smooth; overscroll-behavior: contain; }</style>
+<style>
+@keyframes pulseGlow {
+  0%, 100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff99cc; }
+  50% { text-shadow: 0 0 10px #fff, 0 0 20px #ff66cc; }
+}
+h1 {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+</style><style>
+@keyframes moveGlowing {
+  0% {
+    transform: translate(0, 0);
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff99cc, 0 0 30px #ff66cc;
+  }
+  25% {
+    transform: translate(5px, -5px);
+    text-shadow: 0 0 12px #fff, 0 0 22px #ff99cc, 0 0 32px #ff66cc;
+  }
+  50% {
+    transform: translate(-5px, 5px);
+    text-shadow: 0 0 14px #fff, 0 0 24px #ff99cc, 0 0 34px #ff66cc;
+  }
+  75% {
+    transform: translate(5px, 5px);
+    text-shadow: 0 0 16px #fff, 0 0 26px #ff99cc, 0 0 36px #ff66cc;
+  }
+  100% {
+    transform: translate(0, 0);
+    text-shadow: 0 0 18px #fff, 0 0 28px #ff99cc, 0 0 38px #ff66cc;
+  }
+}
+#scrollVideoGallery h1 {
+  animation: moveGlowing 4s ease-in-out infinite;
+}
+</style><style>
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style><style>
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style></head>
+<body>
+
+<!-- Background Animation -->
+<div class="bg-animation">
+<div class="bg-circle circle-1"></div>
+<div class="bg-circle circle-2"></div>
+<div class="bg-circle circle-3"></div>
+</div>
+
+<!-- HEADER -->
+<header class="animated-header-bg">
+<a class="logo" href="#"><i class="fas fa-code"></i> <span style="background-image: linear-gradient(90deg, #ff6ec4, #7873f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">Matrix Portal</span></a>
+<nav>
+<a href="#projects">Projects</a>
+<a href="#" id="faqToggle">FAQ</a>
+<a href="https://wa.me/message/65YSIVJZVUXVF1" target="_blank">Developer</a>
+<a href="#" id="donationToggle">Donate</a></nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Transformative Projects That Make a Real Difference</h1>
+<p>Explore my curated collection of innovative web applications, powerful tools, and creative solutions. Each project is meticulously developed using cutting-edge technologies, designed to offer an intuitive and seamless user experience that truly stands out.</p>
+<a class="whatsapp-btn" href="https://t.me/QueenAdiza" target="_blank">
+<i class="fab fa-telegram"></i> Follow My Telegram Channel
+    </a>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+<h2 class="section-title">Featured Projects</h2>
+<div style="text-align: center; margin-bottom: 2rem;"><input id="searchInput" placeholder="Search projects..." style="width: 80%; max-width: 400px; padding: 10px; border-radius: 8px; border: 1px solid #ccc;" type="text"/></div>
+<div style="text-align: center; margin-bottom: 2rem;"><label for="bgColorSelect" style="margin-right: 10px; font-weight: 500;">Choose Card Background:</label><select id="bgColorSelect" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc;"><option value="">Default</option><option value="red">Red</option><option value="blue">Blue</option><option value="white">White</option><option value="black">Black</option><option value="green">Green</option><option value="orange">Orange</option><option value="purple">Purple</option><option value="yellow">Yellow</option><option value="teal">Teal</option><option value="navy">Navy</option><option value="gray">Gray</option><option value="lime">Lime</option><option value="maroon">Maroon</option><option value="olive">Olive</option><option value="aqua">Aqua</option><option value="cyan">Cyan</option><option value="magenta">Magenta</option><option value="coral">Coral</option><option value="indigo">Indigo</option><option value="brown">Brown</option></select></div>
+<div class="projects-grid">
+
+<!-- YouTube Downloader -->
+<div class="project-card"><div class="orb" style="top: 54%; left: 60%; animation-delay: 0.4s;"></div><div class="orb" style="top: 89%; left: 38%; animation-delay: 1.9s;"></div><div class="orb" style="top: 53%; left: 23%; animation-delay: 2.61s;"></div><div class="orb" style="top: 33%; left: 68%; animation-delay: 1.65s;"></div><div class="orb" style="top: 27%; left: 16%; animation-delay: 1.95s;"></div><div class="fire-particle" style="top: 82%; left: 69%; animation-delay: 0.06s;"></div><div class="fire-particle" style="top: 72%; left: 21%; animation-delay: 1.58s;"></div><div class="fire-particle" style="top: 77%; left: 40%; animation-delay: 0.61s;"></div><div class="fire-particle" style="top: 13%; left: 76%; animation-delay: 1.72s;"></div><div class="fire-particle" style="top: 58%; left: 26%; animation-delay: 0.88s;"></div><div class="fire-particle" style="top: 81%; left: 18%; animation-delay: 1.17s;"></div><div class="fire-particle" style="top: 81%; left: 22%; animation-delay: 0.78s;"></div><div class="fire-particle" style="top: 21%; left: 54%; animation-delay: 0.68s;"></div><div class="fire-particle" style="top: 35%; left: 19%; animation-delay: 0.39s;"></div><div class="fire-particle" style="top: 19%; left: 69%; animation-delay: 1.76s;"></div>
+<img alt="YouTube Downloader" class="project-img" src="https://iili.io/3guG12e.md.jpg"/>
+<div class="project-info">
+<h3>YouTube Downloader</h3>
+<p>The Best Free YouTube Video Downloader! Paste a YouTube URL to start downloading now—fast, no ads, and unlimited.</p>
+<a class="visit-btn" href="https://adiza-yt-downloader.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Project</a>
+</div>
+</div>
+
+<!-- Remini Enhancer -->
+<div class="project-card"><div class="orb" style="top: 32%; left: 23%; animation-delay: 1.1s;"></div><div class="orb" style="top: 42%; left: 9%; animation-delay: 2.88s;"></div><div class="orb" style="top: 15%; left: 28%; animation-delay: 2.16s;"></div><div class="orb" style="top: 45%; left: 24%; animation-delay: 1.4s;"></div><div class="orb" style="top: 43%; left: 8%; animation-delay: 1.8s;"></div><div class="fire-particle" style="top: 63%; left: 85%; animation-delay: 0.33s;"></div><div class="fire-particle" style="top: 13%; left: 8%; animation-delay: 1.26s;"></div><div class="fire-particle" style="top: 76%; left: 58%; animation-delay: 1.67s;"></div><div class="fire-particle" style="top: 44%; left: 12%; animation-delay: 0.12s;"></div><div class="fire-particle" style="top: 30%; left: 11%; animation-delay: 0.52s;"></div><div class="fire-particle" style="top: 38%; left: 93%; animation-delay: 1.95s;"></div><div class="fire-particle" style="top: 57%; left: 15%; animation-delay: 1.95s;"></div><div class="fire-particle" style="top: 89%; left: 82%; animation-delay: 0.42s;"></div><div class="fire-particle" style="top: 46%; left: 70%; animation-delay: 1.97s;"></div><div class="fire-particle" style="top: 13%; left: 85%; animation-delay: 1.19s;"></div>
+<img alt="Adiza Remini Image Enhancer" class="project-img" src="https://iili.io/3rfGvVI.md.png"/>
+<div class="project-info">
+<h3>Adiza Remini Image Enhancer</h3>
+<p>Bring your blurry or low-quality photos back to life with crystal clarity!
+The Remini Enhancer uses advanced AI to sharpen faces, restore detail, and boost image quality in seconds — no skills needed. Just upload and watch the magic happen.</p>
+<a class="visit-btn" href="https://adiza-remini-enhancer.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Project</a>
+</div>
+</div>
+
+
+<!-- Anime Ai-Generator -->
+<div class="project-card"><div class="orb" style="top: 56%; left: 8%; animation-delay: 1.66s;"></div><div class="orb" style="top: 17%; left: 64%; animation-delay: 0.54s;"></div><div class="orb" style="top: 63%; left: 18%; animation-delay: 0.12s;"></div><div class="orb" style="top: 66%; left: 85%; animation-delay: 2.01s;"></div><div class="orb" style="top: 10%; left: 12%; animation-delay: 2.42s;"></div><div class="fire-particle" style="top: 74%; left: 66%; animation-delay: 1.94s;"></div><div class="fire-particle" style="top: 63%; left: 64%; animation-delay: 1.61s;"></div><div class="fire-particle" style="top: 86%; left: 83%; animation-delay: 1.35s;"></div><div class="fire-particle" style="top: 35%; left: 59%; animation-delay: 0.78s;"></div><div class="fire-particle" style="top: 78%; left: 58%; animation-delay: 1.83s;"></div><div class="fire-particle" style="top: 32%; left: 7%; animation-delay: 0.55s;"></div><div class="fire-particle" style="top: 33%; left: 26%; animation-delay: 0.81s;"></div><div class="fire-particle" style="top: 61%; left: 51%; animation-delay: 1.68s;"></div><div class="fire-particle" style="top: 56%; left: 28%; animation-delay: 0.19s;"></div><div class="fire-particle" style="top: 84%; left: 52%; animation-delay: 0.96s;"></div>
+<img alt="Anime Generator" class="project-img" src="https://iili.io/3rnXqdB.md.jpg"/>
+<div class="project-info">
+<h3>Anime image Generator</h3>
+<p>Bring your ideas to life with our AI-powered Anime Image Generator. Just describe a scene, character, or style — and watch the AI create stunning anime visuals in seconds. No drawing skills needed, just creativity.</p>
+<a class="visit-btn" href="http://adiza-anime-generator.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Project</a>
+</div>
+</div>
+
+
+<!-- Remove Background -->
+<div class="project-card"><div class="orb" style="top: 88%; left: 65%; animation-delay: 1.7s;"></div><div class="orb" style="top: 56%; left: 84%; animation-delay: 0.65s;"></div><div class="orb" style="top: 71%; left: 58%; animation-delay: 2.01s;"></div><div class="orb" style="top: 27%; left: 66%; animation-delay: 0.36s;"></div><div class="orb" style="top: 16%; left: 36%; animation-delay: 0.59s;"></div><div class="fire-particle" style="top: 24%; left: 58%; animation-delay: 1.62s;"></div><div class="fire-particle" style="top: 44%; left: 9%; animation-delay: 1.1s;"></div><div class="fire-particle" style="top: 88%; left: 32%; animation-delay: 0.8s;"></div><div class="fire-particle" style="top: 63%; left: 76%; animation-delay: 0.21s;"></div><div class="fire-particle" style="top: 90%; left: 81%; animation-delay: 1.95s;"></div><div class="fire-particle" style="top: 71%; left: 65%; animation-delay: 1.9s;"></div><div class="fire-particle" style="top: 23%; left: 49%; animation-delay: 1.58s;"></div><div class="fire-particle" style="top: 76%; left: 53%; animation-delay: 0.38s;"></div><div class="fire-particle" style="top: 70%; left: 36%; animation-delay: 1.39s;"></div><div class="fire-particle" style="top: 42%; left: 27%; animation-delay: 0.75s;"></div>
+<img alt="Remove Background" class="project-img" src="https://iili.io/3roW6Zu.md.png"/>
+<div class="project-info">
+<h3>Remove Background</h3>
+<p>Remove Backgrounds effortlessly erase image backgrounds with our AI-powered tool. Just upload a photo — no hassle. Perfect for clean edits, and professional results in seconds, Give it a try buddy.
+!</p>
+<a class="visit-btn" href="http://adiza-removebg.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Project</a>
+</div>
+</div>
+
+
+<!-- Temp Mail -->
+<div class="project-card"><div class="orb" style="top: 38%; left: 85%; animation-delay: 2.27s;"></div><div class="orb" style="top: 21%; left: 55%; animation-delay: 1.96s;"></div><div class="orb" style="top: 24%; left: 33%; animation-delay: 1.44s;"></div><div class="orb" style="top: 72%; left: 87%; animation-delay: 2.27s;"></div><div class="orb" style="top: 52%; left: 16%; animation-delay: 0.24s;"></div><div class="fire-particle" style="top: 36%; left: 89%; animation-delay: 0.01s;"></div><div class="fire-particle" style="top: 90%; left: 45%; animation-delay: 0.94s;"></div><div class="fire-particle" style="top: 19%; left: 25%; animation-delay: 1.63s;"></div><div class="fire-particle" style="top: 71%; left: 48%; animation-delay: 0.72s;"></div><div class="fire-particle" style="top: 53%; left: 37%; animation-delay: 0.21s;"></div><div class="fire-particle" style="top: 75%; left: 72%; animation-delay: 0.22s;"></div><div class="fire-particle" style="top: 72%; left: 77%; animation-delay: 1.16s;"></div><div class="fire-particle" style="top: 79%; left: 8%; animation-delay: 1.21s;"></div><div class="fire-particle" style="top: 26%; left: 85%; animation-delay: 1.43s;"></div><div class="fire-particle" style="top: 30%; left: 35%; animation-delay: 0.78s;"></div>
+<img alt="Temp Mail" class="project-img" src="https://iili.io/3royikx.md.png"/>
+<div class="project-info">
+<h3>Temp Mail</h3>
+<p>Get instant disposable email addresses to receive messages on the fly. Perfect for testing sign-ups, APIs, or verification flows — without exposing your real inbox. Fast, secure, spam-free, and ideal for QA, automation, and everyday privacy.
+</p>
+<a class="visit-btn" href="https://adiza-tempmail.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Project</a>
+</div>
+</div>
+
+
+<!-- Movies Box -->
+<div class="project-card"><div class="orb" style="top: 78%; left: 56%; animation-delay: 0.83s;"></div><div class="orb" style="top: 66%; left: 76%; animation-delay: 1.22s;"></div><div class="orb" style="top: 25%; left: 44%; animation-delay: 2.75s;"></div><div class="orb" style="top: 71%; left: 56%; animation-delay: 1.24s;"></div><div class="orb" style="top: 16%; left: 33%; animation-delay: 2.73s;"></div><div class="fire-particle" style="top: 30%; left: 54%; animation-delay: 0.19s;"></div><div class="fire-particle" style="top: 33%; left: 51%; animation-delay: 0.45s;"></div><div class="fire-particle" style="top: 82%; left: 59%; animation-delay: 0.67s;"></div><div class="fire-particle" style="top: 86%; left: 13%; animation-delay: 0.44s;"></div><div class="fire-particle" style="top: 37%; left: 67%; animation-delay: 0.36s;"></div><div class="fire-particle" style="top: 31%; left: 20%; animation-delay: 0.46s;"></div><div class="fire-particle" style="top: 55%; left: 86%; animation-delay: 0.53s;"></div><div class="fire-particle" style="top: 10%; left: 55%; animation-delay: 1.27s;"></div><div class="fire-particle" style="top: 19%; left: 31%; animation-delay: 1.8s;"></div><div class="fire-particle" style="top: 40%; left: 64%; animation-delay: 1.93s;"></div>
+<img alt="Movies Box" class="project-img" src="https://iili.io/3rx8W3F.md.png"/>
+<div class="project-info">
+<h3>Movies Box</h3>
+<p>Movie Box is a one-stop platform to stream and download movies and TV series across genres and languages. Enjoy high-quality content, personalized recommendations, and offline viewing—all in one place.</p>
+<a class="visit-btn" href="https://adiza-movie-box.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Project</a>
+</div>
+</div>
+
+
+<!-- JavaScript Obsfucator -->
+<div class="project-card"><div class="orb" style="top: 13%; left: 80%; animation-delay: 0.95s;"></div><div class="orb" style="top: 16%; left: 69%; animation-delay: 2.05s;"></div><div class="orb" style="top: 11%; left: 36%; animation-delay: 2.91s;"></div><div class="orb" style="top: 75%; left: 88%; animation-delay: 2.64s;"></div><div class="orb" style="top: 29%; left: 77%; animation-delay: 1.44s;"></div><div class="fire-particle" style="top: 85%; left: 84%; animation-delay: 0.12s;"></div><div class="fire-particle" style="top: 40%; left: 21%; animation-delay: 0.83s;"></div><div class="fire-particle" style="top: 79%; left: 44%; animation-delay: 0.41s;"></div><div class="fire-particle" style="top: 41%; left: 5%; animation-delay: 0.84s;"></div><div class="fire-particle" style="top: 72%; left: 19%; animation-delay: 1.72s;"></div><div class="fire-particle" style="top: 81%; left: 39%; animation-delay: 1.75s;"></div><div class="fire-particle" style="top: 29%; left: 29%; animation-delay: 1.08s;"></div><div class="fire-particle" style="top: 30%; left: 40%; animation-delay: 0.4s;"></div><div class="fire-particle" style="top: 73%; left: 75%; animation-delay: 1.47s;"></div><div class="fire-particle" style="top: 50%; left: 27%; animation-delay: 1.68s;"></div>
+<img alt="JavaScript Obfuscator" class="project-img" src="https://iili.io/3rTDji7.md.jpg"/>
+<div class="project-info">
+<h3>JavaScript Obfuscator</h3>
+<p>JavaScript Obfuscator is a powerful tool that converts readable JavaScript code into a protected, unreadable format to prevent code theft and reverse engineering. Ideal for developers looking to secure their front-end logic and intellectual property</p>
+<a class="visit-btn" href="https://js-obfuscate-pro.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Project</a>
+</div>
+</div>
+
+
+<!-- Social Downloader -->
+<div class="project-card"><div class="orb" style="top: 86%; left: 57%; animation-delay: 2.4s;"></div><div class="orb" style="top: 13%; left: 91%; animation-delay: 2.83s;"></div><div class="orb" style="top: 36%; left: 55%; animation-delay: 1.76s;"></div><div class="orb" style="top: 85%; left: 12%; animation-delay: 0.5s;"></div><div class="orb" style="top: 75%; left: 95%; animation-delay: 2.79s;"></div><div class="fire-particle" style="top: 90%; left: 79%; animation-delay: 1.15s;"></div><div class="fire-particle" style="top: 86%; left: 54%; animation-delay: 0.34s;"></div><div class="fire-particle" style="top: 62%; left: 20%; animation-delay: 0.34s;"></div><div class="fire-particle" style="top: 32%; left: 24%; animation-delay: 0.78s;"></div><div class="fire-particle" style="top: 84%; left: 46%; animation-delay: 1.73s;"></div><div class="fire-particle" style="top: 66%; left: 80%; animation-delay: 0.55s;"></div><div class="fire-particle" style="top: 22%; left: 51%; animation-delay: 1.32s;"></div><div class="fire-particle" style="top: 73%; left: 89%; animation-delay: 1.28s;"></div><div class="fire-particle" style="top: 30%; left: 66%; animation-delay: 0.42s;"></div><div class="fire-particle" style="top: 65%; left: 61%; animation-delay: 0.92s;"></div>
+<img alt="Social Downloader" class="project-img" src="https://iili.io/3rIev4t.md.png"/>
+<div class="project-info">
+<h3>Social Downloader</h3>
+<p>Social Downloader is a powerful all-in-one tool to download videos from TikTok, YouTube, Facebook, and Instagram. With a clean interface and fast performance, lets you save your favorite content in just a few clicks</p>
+<a class="visit-btn" href="http://queen-adiza-downloader.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Project</a>
+</div>
+</div>
+
+
+<!-- Matrix Html Decoder -->
+<div class="project-card"><div class="orb" style="top: 51%; left: 92%; animation-delay: 1.2s;"></div><div class="orb" style="top: 26%; left: 11%; animation-delay: 1.11s;"></div><div class="orb" style="top: 69%; left: 75%; animation-delay: 2.59s;"></div><div class="orb" style="top: 35%; left: 93%; animation-delay: 1.86s;"></div><div class="orb" style="top: 45%; left: 69%; animation-delay: 2.53s;"></div><div class="fire-particle" style="top: 83%; left: 29%; animation-delay: 0.51s;"></div><div class="fire-particle" style="top: 67%; left: 76%; animation-delay: 1.5s;"></div><div class="fire-particle" style="top: 40%; left: 11%; animation-delay: 1.81s;"></div><div class="fire-particle" style="top: 14%; left: 84%; animation-delay: 0.25s;"></div><div class="fire-particle" style="top: 56%; left: 89%; animation-delay: 0.87s;"></div><div class="fire-particle" style="top: 39%; left: 60%; animation-delay: 1.09s;"></div><div class="fire-particle" style="top: 33%; left: 26%; animation-delay: 1.62s;"></div><div class="fire-particle" style="top: 72%; left: 15%; animation-delay: 0.65s;"></div><div class="fire-particle" style="top: 27%; left: 66%; animation-delay: 1.1s;"></div><div class="fire-particle" style="top: 29%; left: 80%; animation-delay: 1.42s;"></div>
+<img alt="Html Decoder" class="project-img" src="https://iili.io/3runVV9.md.jpg"/>
+<div class="project-info">
+<h3>Html Decoder</h3>
+<p>HTML Decoder is a simple tool that converts encoded HTML entities back into readable text. It’s perfect for decoding characters like &lt;, &gt;, and &amp; into their original symbols (&lt;, &gt;, &amp;)—making HTML content easier to read and work with</p>
+<a class="visit-btn" href="https://matrix-html-decoder.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Project</a>
+</div>
+</div>
+
+
+<!-- ImageToUrl -->
+<div class="project-card"><div class="orb" style="top: 10%; left: 24%; animation-delay: 2.08s;"></div><div class="orb" style="top: 81%; left: 87%; animation-delay: 2.39s;"></div><div class="orb" style="top: 37%; left: 16%; animation-delay: 0.35s;"></div><div class="orb" style="top: 77%; left: 79%; animation-delay: 2.75s;"></div><div class="orb" style="top: 32%; left: 83%; animation-delay: 0.52s;"></div><div class="fire-particle" style="top: 80%; left: 84%; animation-delay: 0.59s;"></div><div class="fire-particle" style="top: 27%; left: 7%; animation-delay: 0.63s;"></div><div class="fire-particle" style="top: 11%; left: 16%; animation-delay: 0.06s;"></div><div class="fire-particle" style="top: 76%; left: 33%; animation-delay: 0.61s;"></div><div class="fire-particle" style="top: 62%; left: 79%; animation-delay: 0.35s;"></div><div class="fire-particle" style="top: 71%; left: 15%; animation-delay: 1.08s;"></div><div class="fire-particle" style="top: 35%; left: 35%; animation-delay: 0.55s;"></div><div class="fire-particle" style="top: 17%; left: 10%; animation-delay: 0.75s;"></div><div class="fire-particle" style="top: 82%; left: 88%; animation-delay: 1.68s;"></div><div class="fire-particle" style="top: 48%; left: 79%; animation-delay: 0.06s;"></div>
+<img alt="imgUrl" class="project-img" src="https://iili.io/3rTO8AJ.md.jpg"/>
+<div class="project-info">
+<h3>ImgUrl</h3>
+<p>Image to URL is a simple tool that lets users upload images and instantly generate shareable links. Whether you need a URL to embed images in websites, share in chats or emails, use in social media posts, or host assets for development, this tool makes it fast and hassle-free—no coding required</p>
+<a class="visit-btn" href="https://adizatu.free.nf/" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Project</a>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer-animated" id="contact">
+<div class="social-links">
+<a href="https://github.com/Matrix199" target="_blank" title="GitHub">
+<i class="fab fa-github"></i>
+</a>
+<a href="https://t.me/Matrixxxxxxxxx" target="_blank" title="Telegram">
+<i class="fab fa-telegram"></i>
+</a>
+<a href="https://chat.whatsapp.com/Dly93CfsXHCH1gB5sOdVLt" target="_blank" title="Join WhatsApp Group">
+<i class="fab fa-whatsapp"></i>
+</a>
+<a href="https://youtube.com/@matrix-zat" target="_blank" title="YouTube">
+<i class="fab fa-youtube"></i>
+</a>
+</div>
+<p>© 2025 - 2030 Matrix. All rights reserved.</p>
+</footer>
+<style>
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .social-links a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s, transform 0.3s;
+    animation: iconPulse 2.5s infinite ease-in-out;
+  }
+
+  .social-links a:hover {
+    color: #00ffa1;
+    transform: scale(1.15);
+  }
+
+  .label {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  @keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+</style>
+<style>
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .social-links a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s;
+  }
+
+  .social-links a:hover {
+    color: #00ffa1;
+  }
+
+  .label {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+.social-links {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 15px !important;
+  flex-wrap: wrap !important;
+  padding: 10px !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.hero h1 {
+  margin-top: 1rem;
+  font-size: 2.2rem;
+  line-height: 1.3;
+}
+
+@keyframes rainbowText {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-3px); }
+  40%, 80% { transform: translateX(3px); }
+}
+
+.project-info h3 {
+  background-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 400% 100%;
+  animation: rainbowText 5s linear infinite, shake 2s infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+  background-image: linear-gradient(90deg, #ff0000, #ffa500, #ffff00, #00ff00, #00ffff, #0000ff, #8a2be2);
+  background-size: 400% 100%;
+  animation: rainbowText 5s linear infinite, shake 2s infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255,255,255,0.8);
+}
+@keyframes shine {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.project-img {
+  animation: shine 3s ease-in-out infinite;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+
+@keyframes fireSpark {
+  0%, 100% { opacity: 0; transform: scale(0.5) translateY(-10px); }
+  50% { opacity: 1; transform: scale(1.1) translateY(10px); }
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card .sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #ff4500 0%, #ff6347 60%, transparent 100%);
+  border-radius: 50%;
+  animation: fireSpark 1.8s infinite ease-in-out;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Multiple sparkles at different positions */
+.project-card .sparkle:nth-child(1) { top: 12%; left: 25%; animation-delay: 0s; }
+.project-card .sparkle:nth-child(2) { top: 35%; left: 65%; animation-delay: 0.4s; }
+.project-card .sparkle:nth-child(3) { top: 55%; left: 45%; animation-delay: 0.9s; }
+.project-card .sparkle:nth-child(4) { top: 78%; left: 75%; animation-delay: 1.3s; }
+
+
+@keyframes fireParticle {
+  0% {
+    transform: scale(0.5) translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2) translateY(-60px);
+    opacity: 0;
+  }
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card .fire-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ffae00 0%, #ff4500 80%, transparent 100%);
+  border-radius: 50%;
+  animation: fireParticle 2s infinite ease-in-out;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-15px) scale(1.1); opacity: 1; }
+}
+
+.project-card .orb {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #00ffe7 0%, #0051ff 60%, transparent 100%);
+  border-radius: 50%;
+  animation: floatOrb 3s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #0088cc, #004e92);
+  color: #ffffff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.whatsapp-btn:hover {
+  background: linear-gradient(135deg, #00bfff, #005eff);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 136, 204, 0.6);
+}
+
+@keyframes pulseGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-header-bg {
+  background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
+  background-size: 600% 600%;
+  animation: pulseGlow 15s ease infinite;
+}
+
+.animated-social-bg {
+  background: linear-gradient(270deg, #1c1c1c, #2b2b2b, #0d0d0d);
+  background-size: 400% 400%;
+  animation: pulseGlow 10s ease infinite;
+}
+
+@keyframes shiftBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-section {
+  background: linear-gradient(270deg, #111111, #1f1f1f, #000000);
+  background-size: 600% 600%;
+  animation: shiftBG 20s ease infinite;
+}
+
+@keyframes footerGlow {
+  0% { background: linear-gradient(45deg, red, orange); }
+  20% { background: linear-gradient(45deg, orange, yellow); }
+  40% { background: linear-gradient(45deg, yellow, green); }
+  60% { background: linear-gradient(45deg, green, blue); }
+  80% { background: linear-gradient(45deg, blue, violet); }
+  100% { background: linear-gradient(45deg, violet, red); }
+}
+
+.footer-animated {
+  animation: footerGlow 20s infinite alternate;
+  background-size: 400% 400%;
+  color: white !important;
+}
+</style>
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  searchInput.addEventListener('input', function () {
+    const filter = searchInput.value.toLowerCase();
+    projectCards.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      card.style.display = title.includes(filter) ? 'flex' : 'none';
+    });
+  });
+</script><script>
+document.getElementById("bgColorSelect").addEventListener("change", function() {
+  const cards = document.querySelectorAll(".project-card");
+  const color = this.value;
+  cards.forEach(card => {
+    if (color) {
+      card.style.background = color;
+      card.style.color = (color === "white" || color === "yellow" || color === "lime") ? "#000" : "#fff";
+    } else {
+      card.style.background = "rgba(30, 32, 41, 0.7)";
+      card.style.color = "";
+    }
+  });
+});
+</script>
+<section id="faqSection" style="display: none; padding: 2rem; background: #0D0F16; color: white;">
+<h2 style="text-align: center; margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+<div style="max-width: 800px; margin: auto;">
+<p><strong>What is Matrix Portal?</strong><br/>
+    Matrix Portal is your one-stop hub for tools that simplify everyday tasks like downloading media, editing HTML, and enhancing images.</p>
+<p><strong>How do I use the tools here?</strong><br/>
+    Simply scroll through the featured projects and click on "Visit Project" for the tool you want to use. Everything works right from your browser—no downloads required.</p>
+<p><strong>Is it free to use?</strong><br/>
+    Yes! All the tools available on Matrix Portal are free to use without sign-up or subscription.</p>
+<p><strong>Can I download media from all platforms?</strong><br/>
+    You can download from TikTok, YouTube, Facebook, and Instagram. Just copy and paste the link in the relevant tool.</p>
+<p><strong>Is my data secure?</strong><br/>
+    Absolutely. Matrix Portal doesn't store any user data. Everything is handled securely in your browser.</p>
+<p><strong>Do I need to install anything?</strong><br/>
+    No installation is needed. All tools work directly from your browser—fast and hassle-free.</p>
+<p><strong>Which devices are supported?</strong><br/>
+    Matrix Portal works on all modern devices including phones, tablets, and desktops.</p>
+<p><strong>Can I share these tools with others?</strong><br/>
+    Absolutely! Feel free to share Matrix Portal with friends, classmates, or on social media.</p>
+<p><strong>What if a tool isn't working?</strong><br/>
+    Try refreshing the page or checking your internet connection. If the issue continues, contact the developer through the "Developer" link in the nav.</p>
+<p><strong>Are there plans to add more tools?</strong><br/>
+    Yes, new tools and features are regularly added to make Matrix Portal even more useful!</p>
+</div>
+<div style="text-align: center; margin-top: 2rem;">
+<a href="#" id="scrollTop" style="padding: 10px 20px; background: #222; color: white; border-radius: 6px; text-decoration: none;">Back to Top</a>
+</div>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("faqToggle");
+  const section = document.getElementById("faqSection");
+  if (toggle && section) {
+    toggle.addEventListener("click", function (e) {
+      e.preventDefault();
+      section.style.display = section.style.display === "none" ? "block" : "none";
+      section.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+});
+</script><script>
+document.getElementById("scrollTop").addEventListener("click", function(e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+<section id="donationSection" style="display: none; padding: 2rem; background: #0d0f16; color: white;">
+<h2 style="text-align: center;">Support Our Good Works</h2>
+<p style="text-align: center; max-width: 700px; margin: auto;">
+    Your support helps us continue improving and expanding Matrix Portal. If you've found any of our tools helpful, consider sending a token of appreciation.
+    <br/><br/>
+<strong>After donating, please <a href="https://wa.me/message/65YSIVJZVUXVF1" style="color: #00ffcc;" target="_blank">message me on WhatsApp</a> so I can personally thank you!</strong>
+</p>
+<div style="margin-top: 2rem; text-align: center;">
+<div style="margin-bottom: 1.5rem;">
+<img alt="MTN MoMo" src="https://files.catbox.moe/88d4mu.jpg" style="height: 40px;"/><br/>
+<strong>MTN MoMo:</strong> 0593734312
+        </div>
+<div style="margin-bottom: 1.5rem;">
+<img alt="Vodafone Cash" src="https://files.catbox.moe/om04or.jpeg" style="height: 40px;"/><br/>
+<strong>Vodafone Cash:</strong> 0508419007
+        </div>
+<div style="margin-bottom: 1.5rem;">
+<img alt="Binance" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Binance_Logo.png/600px-Binance_Logo.png" style="height: 40px;"/><br/>
+<strong>Binance ID:</strong> 888747836
+        </div>
+</div>
+<div style="text-align:center; margin-top: 2rem;">
+<a href="#" id="backToTop" style="padding: 10px 20px; background: #00b894; color: white; border-radius: 6px; text-decoration: none;">Back to Top</a>
+</div>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const donateBtn = document.getElementById("donationToggle");
+  const donateSection = document.getElementById("donationSection");
+  if (donateBtn && donateSection) {
+    donateBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      donateSection.style.display = donateSection.style.display === "none" ? "block" : "none";
+      donateSection.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+});
+</script><script>
+document.getElementById("backToTop").addEventListener("click", function(e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollBtn = document.getElementById("backToTop");
+  const faqBtn = document.getElementById("faqToggle");
+  const donateBtn = document.getElementById("donationToggle");
+  const faqSection = document.getElementById("faqSection");
+  const donateSection = document.getElementById("donationSection");
+
+  if (scrollBtn) {
+    scrollBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  if (faqBtn && faqSection && donateSection) {
+    faqBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      faqSection.style.display = "block";
+      donateSection.style.display = "none";
+      faqSection.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
+  if (donateBtn && donateSection && faqSection) {
+    donateBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      donateSection.style.display = "block";
+      faqSection.style.display = "none";
+      donateSection.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const video = document.getElementById("introVideo");
+  const btn = document.getElementById("toggleSound");
+
+  if (video && btn) {
+    video.muted = true;
+    video.play().catch(() => {});
+    btn.addEventListener("click", function () {
+      video.muted = !video.muted;
+      btn.textContent = video.muted ? "🔇 Tap to Enable Sound" : "🔊 Tap to Mute";
+      video.play().catch(() => {});
+    });
+  }
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const adulthoodLink = document.querySelector('a[href="#adulthoodSection"]');
+  const adulthoodSection = document.getElementById("adulthoodSection");
+  const loader = document.getElementById("adulthoodLoader");
+  const faqSection = document.getElementById("faqSection");
+  const donateSection = document.getElementById("donationSection");
+
+  if (adulthoodLink && adulthoodSection && loader) {
+    adulthoodLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      loader.style.display = "flex";
+      setTimeout(() => {
+        loader.style.display = "none";
+        adulthoodSection.style.display = "block";
+        if (faqSection) faqSection.style.display = "none";
+        if (donateSection) donateSection.style.display = "none";
+        adulthoodSection.scrollIntoView({ behavior: "smooth" });
+      }, 2000);
+    });
+  }
+
+  const backToTop = document.getElementById("backToTopAdult");
+  if (backToTop) {
+    backToTop.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+});
+</script></body>
+</html>
